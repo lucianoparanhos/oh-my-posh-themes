@@ -1,0 +1,68 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#E95420",
+          "foreground": "#F6F6F5",
+          "style": "plain",
+          "template": " \uf0e7 ",
+          "type": "root"
+        },
+        {
+          "foreground": "#E95420",
+          "style": "plain",
+          "template": " {{ .Icon }} ",
+          "type": "os"
+        },
+        {
+          "foreground": "#F6F6F5",
+          "properties": {
+            "folder_icon": "\uf115",
+            "folder_separator_icon": " / ",
+            "max_depth": 1,
+            "style":"agnoster"
+          },
+          "style": "plain",
+          "template": " {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "#E95420",
+          "properties": {
+            "branch_max_length": 30,
+            "fetch_stash_count": false,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "style": "plain",
+          "template": "[ {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ]",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#E95420",
+          "style": "plain",
+          "template": "\ue3bf ",
+          "type": "root"
+        },
+        {
+          "foreground": "#AEA79F",
+          "style": "plain",
+          "template": "{{ .UserName }} \u276f ",
+          "type": "session"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 2
+}
